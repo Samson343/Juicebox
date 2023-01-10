@@ -23,3 +23,13 @@ async function testDB() {
   }
   
   testDB();
+
+  //queries must end with a semicolon
+// \l to see your database
+// \c databaseName connects you to a given database
+// INSERT INTO allows you to directly insert data into a database
+// duplicate values, like id or name, are not allowed by sql
+// CREATE TABLE specify structure after
+// DELETE * FROM
+// nmp i pg to start postgress in your node project
+// \q to quit postgres
