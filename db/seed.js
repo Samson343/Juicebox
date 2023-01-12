@@ -90,6 +90,7 @@ rebuildDB()
   .then(testDB)
   .catch(console.error)
   .finally(() => client.end());
+  //the client.end() tells node to cut off the connection to this file/database, important to have a client.end() in all node applications
 
 
   //queries must end with a semicolon
@@ -99,7 +100,12 @@ rebuildDB()
 // duplicate values, like id or name, are not allowed by sql
 // CREATE TABLE specify structure after
 // DELETE * FROM
-// nmp i pg to start postgress in your node project
+// nmp i pg to install postgress in your node project
 // \q to quit postgres
 // to drop a table essentially means deleting it
 // psql -U postgres to start postgress with the username posgres
+// npm init -y is writes a super basic package.json
+// after a .query(``) you can insert commands for postgres to execute, should always be awaited 
+// make sure to drop a table often when you are updating it - this allows you to delete the database and reconstruct it with the new data
+// $1 is a way to protect against sql insertion which is a backdoor for people to steal info
+// spaces in javascript will turn into % signs in a url

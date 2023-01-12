@@ -1,6 +1,9 @@
 const { Client } = require('pg')
 
 const client = new Client ('postgres://localhost:5432/juicebox')
+// connects to the database through this port
+
+//'postgres://postgres@localhost:5432/juicebox'
 
 async function getAllUsers () {
     const { rows } = await client.query(
@@ -9,6 +12,8 @@ async function getAllUsers () {
   `)
   return rows
 }
+
+// ^^ SELECT thing you want to grab FROM databasename
 
 async function createUser({ username, password }) {
   try {
