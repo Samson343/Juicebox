@@ -1,21 +1,5 @@
 
-  //queries must end with a semicolon
-// \l to see your database
-// \c databaseName connects you to a given database
-// INSERT INTO allows you to directly insert data into a database
-// duplicate values, like id or name, are not allowed by sql
-// CREATE TABLE specify structure after
-// DELETE * FROM
-// nmp i pg to install postgress in your node project
-// \q to quit postgres
-// to drop a table essentially means deleting it
-// psql -U postgres to start postgress with the username posgres
-// npm init -y is writes a super basic package.json
-// after a .query(``) you can insert commands for postgres to execute, should always be awaited 
-// make sure to drop a table often when you are updating it - this allows you to delete the database and reconstruct it with the new data
-// $1 is a way to protect against sql insertion which is a backdoor for people to steal info
-// spaces in javascript will turn into % signs in a url
-// when re-cloning the project, this command starts psql and holds the server open - sudo service postgresql start
+
 const {  
   client,
   createUser,
