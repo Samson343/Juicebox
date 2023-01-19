@@ -10,4 +10,4 @@ apiRouter.use('/posts', postsRouter);
 const tagsRouter = require('./tags');
 apiRouter.use('/tags', tagsRouter);
 
-module.exports = apiRouter;
+module.exports = apiRouter; 
