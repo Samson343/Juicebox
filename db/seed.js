@@ -10,7 +10,8 @@ const {
   updatePost,
   getAllPosts,
   getAllTags,
-  getPostsByTagName
+  getPostsByTagName,
+  getUserByUsername
 } = require('./index');
 
 async function dropTables() {
