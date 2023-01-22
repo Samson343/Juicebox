@@ -6,8 +6,9 @@ console.log(process.env.JWT_SECRET);
 const PORT = 3000;
 const express = require("express");
 const bodyParser = require("body-parser");
-server.use(bodyParser.json());
+
 const server = express();
+server.use(bodyParser.json());
 const { client } = require("./db");
 client.connect();
 

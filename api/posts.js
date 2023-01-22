@@ -1,12 +1,17 @@
 const express = require("express");
 const postsRouter = express.Router();
 const { requireUser } = require("./utils");
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = process.env;
 
 postsRouter.post("/", requireUser, async (req, res, next) => {
   const { title, content, tags = "" } = req.body;
-
   const tagArr = tags.trim().split(/\s+/);
   const postData = {};
+
+  const prefix = 'Bearer ';
+  const auth = req.header('Authorization');
+  const token = auth.slice(prefix.length);
 
   // only send the tags if there are some to send
   if (tagArr.length) {
@@ -15,7 +20,13 @@ postsRouter.post("/", requireUser, async (req, res, next) => {
 
   try {
     // add authorId, title, content to postData object
-    const postData = { authorId, title, content };
+    const { id } = jwt.verify(token, JWT_SECRET);
+
+    postData['title'] = title
+    postData['content'] = content
+    postData['authorId'] = id
+
+
     // const post = await createPost(postData);
     const post = await createPost(postData);
     // this will create the post and the tags for us

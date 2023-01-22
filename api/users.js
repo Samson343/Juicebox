@@ -38,6 +38,7 @@ usersRouter.get('/', async (req, res) => {
       if (user && user.password == password) {
         // create token & return to user
         const token = jwt.sign({id: user.id, username, password}, process.env.JWT_SECRET);
+        console.log(token)
         res.send({ message: "you're logged in!", token: token});
       } else {
         next({ 
@@ -74,9 +75,11 @@ usersRouter.get('/', async (req, res) => {
       const token = jwt.sign({ 
         id: user.id, 
         username
-      }, process.env.JWT_SECRET, {
+      }, 
+      process.env.JWT_SECRET, {
         expiresIn: '1w'
-      });
+      }
+      );
   
       res.send({ 
         message: "thank you for signing up",
