@@ -27,7 +27,6 @@ postsRouter.post("/", requireUser, async (req, res, next) => {
     postData['content'] = content
     postData['authorId'] = id
 
-
     // const post = await createPost(postData);
     const post = await createPost(postData);
     // this will create the post and the tags for us
