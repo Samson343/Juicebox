@@ -3,7 +3,7 @@ require("dotenv").config();
 console.log(process.env.JWT_SECRET);
 
 // inside index.js
-const PORT = 3000;
+const PORT = 5432;
 const express = require("express");
 const bodyParser = require("body-parser");
 
